@@ -19,7 +19,7 @@ export const generateQRCode = functions.auth.user().onCreate(async (user) => {
     QRCode.toFile(IMAGE_PATH, uid);
     const bucket = admin.storage().bucket("spreadly-core.appspot.com")
     await bucket.upload(IMAGE_PATH, {
-        destination: `${uid}.png`
+        destination: `qrcodes/${uid}.png`
     })
     
 });
